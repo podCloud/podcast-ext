@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://podcast-ext.org/podcast-xsd"
+    xsi:schemaLocation="https://podcast-ext.org/podcast.xsd https://podcast-ext.org/podcast.xsd"
+    targetNamespace="https://podcast-ext.org/podcast-xsd"
+    elementFormDefault="qualified">
+
+<xsd:annotation>
+    <xsd:documentation>
+            XML Schema for the Podcasts extension.
+
+            Help Center documentation for the Podcasts extension:
+            https://podcast-ext.org/help
+
+            GPL Licence applies
+    </xsd:documentation>
+</xsd:annotation>
+
+<xsd:element name="platform">
+    <xsd:annotation>
+        <xsd:documentation>
+                A podcast platform where the podcast is available.
+
+                The platform attribute is the platform code defined and communicated by itself.
+                The href attribute is the link to the podcast on specified platform.
+
+                An optional name attribute is available if the platform code is different from its name.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+        <xsd:attribute name="platform" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:minLength value="2"/>
+                    <xsd:maxLength value="255"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="name">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:minLength value="2"/>
+                    <xsd:maxLength value="255"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="href" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:anyURI">
+                    <xsd:minLength value="12"/>
+                    <xsd:maxLength value="2048"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="email">
+    <xsd:annotation>
+        <xsd:documentation>
+                The email address of the podcast owner. This email will be used to
+                verify the ownership of the podcast during registration. The email is
+                only specified in the &lt;channel&gt; tag.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="image">
+    <xsd:annotation>
+        <xsd:documentation>
+                A URL that points to the the artwork of your podcast or episode. The
+                image can be specified in the &lt;channel&gt; or &lt;item&gt; tags.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+        <xsd:attribute name="href" use="required">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:anyURI">
+                    <xsd:minLength value="12"/>
+                    <xsd:maxLength value="2048"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="description">
+    <xsd:annotation>
+        <xsd:documentation>
+                A description of the podcast or episode. The description can be specified
+                in the &lt;channel&gt; or &lt;item&gt; tags and must be plain-text (no
+                markup allowed).
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="4000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="explicit">
+    <xsd:annotation>
+        <xsd:documentation>
+                Indicates whether the podcast or a specific episode contains explicit
+                material. If not specified, it is considered not explicit. The explicit
+                symbol will appear next to the podcast when the tag is placed in the
+                &lt;channel&gt; and next to the episode when placed in the &lt;item&gt;.
+                A 'clean' value can only be used in the &lt;item&gt; tag, and it means
+                this episode is not explicit, but there's also an explicit version of
+                of the same episode.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="yes" />
+            <xsd:enumeration value="no" />
+            <xsd:enumeration value="clean" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="block">
+    <xsd:annotation>
+        <xsd:documentation>
+                If this tag is set to 'yes' in the &lt;channel&gt; tag, the podcast will
+                will not appear in Google Play Music.  If this tag is set to 'yes' in the
+                &lt;item&gt; tag, that episode will not appear in Google Play Music. If
+                it's not set, it will be treated as 'no'.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="yes" />
+            <xsd:enumeration value="no" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="newFeedUrl">
+    <xsd:annotation>
+        <xsd:documentation>
+                Allows the podcast owner to change the URL where the RSS podcast feed is
+                located. After adding the tag, you should maintain the old feed for 48
+                hours before retiring it. newFeedUrl is only specified in the
+                &lt;channel&gt; tag.
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:anyURI">
+            <xsd:minLength value="12"/>
+            <xsd:maxLength value="2048"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="category">
+    <xsd:annotation>
+        <xsd:documentation>
+                Specify the category that your podcast relates to. If more than one
+                category is specified, only the first one will be used. Categories can
+                only be specified in the &lt;channel&gt; tag. The 'text' must match one
+                of the pre-defined categories specified in the help center
+                article: https://support.google.com/googleplay/podcasts/answer/6260341#spt
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+        <xsd:attribute name="text" type="xsd:string" use="required" />
+    </xsd:complexType>
+</xsd:element>
+
+</xsd:schema>
