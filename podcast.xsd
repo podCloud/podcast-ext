@@ -45,6 +45,12 @@
 	</xsd:restriction>
 </xsd:simpleType>
 
+<xsd:simpleType name="ISBN">
+    <xsd:restriction base="xsd:string">
+		<xsd:pattern value="\d{1}-\d{5}-\d{3}-\d{1}|\d{1}-\d{3}-\d{5}-\d{1}|\d{1}-\d{2}-\d{6}-\d{1}"/>           
+    </xsd:restriction>
+</xsd:simpleType>
+
 <xsd:complexType name="Person">
 	<xsd:annotation>
 		<xsd:documentation>
@@ -300,6 +306,29 @@
 		<xsd:choice minOccurs="1" maxOccurs="unbounded">
 			<xsd:element name="person" type="Person" />			
 		</xsd:choice>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="book">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about books in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="author" type="Name" use="required" />
+		<xsd:attribute name="href" type="LinkHref" />
+		<xsd:attribute name="isbn" type="ISBN" />
+
+		<!-- Need definition of the price -->
 	</xsd:complexType>
 </xsd:element>
 
