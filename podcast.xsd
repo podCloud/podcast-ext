@@ -16,6 +16,7 @@
     </xsd:documentation>
 </xsd:annotation>
 
+<!-- Custom type definition -->
 <xsd:simpleType name="RestrictYesNo">
 	<xsd:restriction base="xsd:string">
 		<xsd:enumeration value="yes" />
@@ -44,6 +45,48 @@
 	</xsd:restriction>
 </xsd:simpleType>
 
+<xsd:complexType name="Person">
+	<xsd:annotation>
+		<xsd:documentation>
+			This tag give some information about person in a podcast
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="link">
+				<xsd:annotation>
+					<xsd:documentation>
+						Used to add any link you want related to this people podcast.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="LinkHref">
+							<xsd:attribute name="href" type="LinkHref" use="required"/>	
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="social">
+				<xsd:annotation>
+					<xsd:documentation>
+						Here you can define some social network of this person
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:attribute name="platform" type="Platform" use="required" />
+					<xsd:attribute name="handle" type="Name" use="optional" />
+					<xsd:attribute name="href" type="LinkHref" use="required" />
+				</xsd:complexType>
+			</xsd:element>
+	</xsd:choice>
+	<xsd:attribute name="firstname" type="Name" />
+	<xsd:attribute name="lastname" type="Name" />
+	<xsd:attribute name="nickname" type="Name" />
+	<xsd:attribute name="role" type="xsd:string" />
+</xsd:complexType>
+
+<!-- Elements definition -->
 <xsd:element name="platform">
     <xsd:annotation>
         <xsd:documentation>
@@ -227,6 +270,36 @@
 				<xsd:attribute name="href" type="LinkHref" use="required"/>	
 			</xsd:extension>
 		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="person" type="Person" />
+
+<xsd:element name="team">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to define some information about the team of the podcast.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:complexType>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="person" type="Person" />
+		</xsd:choice>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="guest">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some extra information about guest in the episode (used only in item tag).
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:complexType>
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="person" type="Person" />			
+		</xsd:choice>
 	</xsd:complexType>
 </xsd:element>
 
