@@ -327,8 +327,165 @@
 		<xsd:attribute name="author" type="Name" use="required" />
 		<xsd:attribute name="href" type="LinkHref" />
 		<xsd:attribute name="isbn" type="ISBN" />
+	</xsd:complexType>
+</xsd:element>
 
-		<!-- Need definition of the price -->
+<xsd:element name="game">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about games in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="developer" type="Name" />
+		<xsd:attribute name="href" type="LinkHref" />
+		<xsd:attribute name="publisher" type="Name" />
+		<xsd:attribute name="platforms" type="xsd:string" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="tv_show">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about TV Show in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="movie">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about movies in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="director" type="Name" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="video">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about video in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="music">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about music in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
+		<xsd:attribute name="artist" type="Name" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="art">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about art in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="title" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
+		<xsd:attribute name="artist" type="Name" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="object">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about object in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="name" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
+		<xsd:attribute name="brand" type="Name" />
+		<xsd:attribute name="price" type="xsd:positiveInteger" />
+		<xsd:attribute name="currency" type="xsd:string" />
+	</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="website">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about a website in podcast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="name" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="512"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
 	</xsd:complexType>
 </xsd:element>
 
