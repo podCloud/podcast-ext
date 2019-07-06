@@ -295,7 +295,7 @@
 	</xsd:complexType>
 </xsd:element>
 
-<xsd:element name="guest">
+<xsd:element name="guests">
 	<xsd:annotation>
 		<xsd:documentation>
 			Used to give some extra information about guest in the episode (used only in item tag).
