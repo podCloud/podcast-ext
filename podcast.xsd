@@ -193,7 +193,7 @@
 	<xsd:complexType>
 		<xsd:simpleContent>
 			<xsd:extension base="RestrictYesNo">
-				<xsd:attribute name="platforme" type="Platform" use="required"/>
+				<xsd:attribute name="platform" type="Platform" use="required"/>
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>	
