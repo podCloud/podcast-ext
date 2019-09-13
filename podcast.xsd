@@ -489,4 +489,23 @@
 	</xsd:complexType>
 </xsd:element>
 
+<xsd:element name="live">
+	<xsd:annotation>
+		<xsd:documentation>
+			Used to give some information about where you can find the live of the podcsast.
+		</xsd:documentation>
+	</xsd:annotation>	
+
+	<xsd:complexType>
+		<xsd:attribute name="type" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="50"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="href" type="LinkHref" use="required" />
+	</xsd:complexType>
+</xsd:element>
+
 </xsd:schema>
