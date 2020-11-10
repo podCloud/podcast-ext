@@ -2,9 +2,9 @@
 
 This project aims to extend the RSS XML to add metadatas about the show and its episodes
 
-The podcast-ext project will be open source and open to everyone wanting to contribute. 
+The podcast-ext project is open source and open to everyone wanting to contribute. 
 
-You can share start to share your ideas by opening Github issues at : 
+You can start to share your ideas by opening Github issues at : 
 https://github.com/podcloud/podcast-ext/issues
 
 ## Namespace
@@ -130,7 +130,7 @@ Issues and pull requests are open.
 			<podcast:guests>
 				<podcast:person firstname="Thomas" lastname="Collins">
 					<podcast:link href="https://jaimelegif.com">Thomas project website</podcast:link>
-                    <podcast:social platform="twitter" handle="tomcol" href="https://twitter.com/tomcol" />
+					<podcast:social platform="twitter" handle="tomcol" href="https://twitter.com/tomcol" />
 				</podcast:person>
 			</podcast:guests>
 
