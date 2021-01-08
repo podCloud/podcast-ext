@@ -2,9 +2,9 @@
 
 This project aims to extend the RSS XML to add metadatas about the show and its episodes
 
-The podcast-ext project will be open source and open to everyone wanting to contribute. 
+The podcast-ext project is open source and open to everyone wanting to contribute. 
 
-You can share start to share your ideas by opening Github issues at : 
+You can start to share your ideas by opening Github issues at : 
 https://github.com/podcloud/podcast-ext/issues
 
 ## Namespace
@@ -130,13 +130,14 @@ Issues and pull requests are open.
 			<podext:guests>
 				<podext:person firstname="Thomas" lastname="Collins">
 					<podext:link href="https://jaimelegif.com">Thomas project website</podext:link>
-                    <podext:social platform="twitter" handle="tomcol" href="https://twitter.com/tomcol" />
+          <podext:social platform="twitter" handle="tomcol" href="https://twitter.com/tomcol" />
 				</podext:person>
 			</podext:guests>
 
 			<podext:location name="ABC" city="London" postcode="123VE" country="UK" lat="34.676637" lng="135.506512" />
 			<podext:website name="Netflix" href="https://netflix.com" />
 			<podext:event 
+
 				name="MP3@Paris" 
 				when="Sat, 22 June 2019 10:00:00 CEST" 
 				where="Campus Jussieu" 
