@@ -1,11 +1,9 @@
 # Podcast RSS extension
 
-This project aims to extend the RSS XML to add metadatas about the show and its episodes
+## This project will soon be deleted. 
+We encourage everyone to move to [Podcastindex-org/podcast-namespace](https://github.com/Podcastindex-org/podcast-namespace) and contribute there.
 
-The podcast-ext project is open source and open to everyone wanting to contribute. 
-
-You can start to share your ideas by opening Github issues at : 
-https://github.com/podcloud/podcast-ext/issues
+# Original work 
 
 ## Namespace
 The `podext` namespace will be used to be fully platform agnostic and neutral.
